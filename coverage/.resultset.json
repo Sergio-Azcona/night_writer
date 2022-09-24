@@ -1,0 +1,72 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/sergioazcona/Desktop/turing_work/1mod_REDUX/projects/night_writer/lib/night_writer.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/sergioazcona/Desktop/turing_work/1mod_REDUX/projects/night_writer/lib/night_reader.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/sergioazcona/Desktop/turing_work/1mod_REDUX/projects/night_writer/lib/alphabet_translation.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
+          2,
+          23,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1663984896
+  }
+}
