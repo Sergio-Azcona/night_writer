@@ -37,15 +37,18 @@ class AlphabetTranslation
 
   def alphabet_conversion(letter)
     @letters_and_braille[letter] 
+    # require 'pry';binding.pry
   end
 
   def braille_conversion(braille)
     @letters_and_braille.find do |letter, braille_character|
+      # require 'pry';binding.pry
         if braille == braille_character
-          # require 'pry';binding.pry
           return letter
         end
     end
   end
 
 end
+
+AlphabetTranslation.new.braille_conversion("0.0...")
