@@ -1,4 +1,5 @@
-# File.read("lib/braille.txt").size
+#Create a NightReader program that will convert Braille back to English text:
+
 class NightReader
   attr_reader :input_message
   def initialize
@@ -8,21 +9,24 @@ class NightReader
 
 
 
-  def read_input_message
-    input_message = File.open(ARGV[0])
+  # def read_input_message
+  #   input_message = File.open(ARGV[1], "r")
     
-    note_size = input_message.size
-    print "Created #{ARGV[0])} containing #{note_size} characters"
-    # require 'pry';binding.pry
+  #   note_size = input_message.size
+  #   print "Created #{ARGV[1])} containing #{note_size} characters"
+  #   # require 'pry';binding.pry
 
-    # File.write(ARGV[1], input_message)
-  end
+  #   # File.write(ARGV[1], input_message)
+  # end
 
-  def write_output_message
-    # output_message = File.open(ARGV[1])
-
-  end
+  # def write_output_message
+  #   # output_message = File.open(ARGV[1])
+  #   output_message = File.open(ARGV[1], "w")
+    
+  #   note_size = output_message.size
+  #   print "Created #{ARGV[1])} containing #{note_size} characters"
+  # end
 
 end
 
- NightReader.new.read_input_message
+#  NightReader.new.read_input_message
