@@ -50,5 +50,3 @@ class AlphabetTranslation
   end
 
 end
-
-AlphabetTranslation.new.braille_conversion("0.0...")
