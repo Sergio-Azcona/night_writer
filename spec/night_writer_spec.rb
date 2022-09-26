@@ -20,8 +20,12 @@ RSpec.describe NightWriter do
   it 'takes a valid letter and return braille' do
     # expect(english_message.braille_conversion).to eq(["0.00..","0..0.."])#he
     expect(english_message.braille_conversion).to eq(["0.00..", "0..00.", "000.0.", "0..0..", "......", ".00...", "......", "000.0.", "0.....", ".00.0.", ".00.0."])#HOPE I pass
-    
- end
+  end
+
+  it 'confirms the message contains characters and inform if characters are not valid' do
+    expect(english_message.valid_input?).to eq true
+    #out if invalid not working!!
+  end
   
  
 end

@@ -16,7 +16,17 @@ class NightWriter
     @input_text.chomp!
     @input_text.downcase.chars 
     # ** DOWNCASE will need to be removed if CAPITOL LETTERS accepted  **
-    
+  end
+  
+  def valid_input?
+    read_input_text.find_all do |letter|
+      if @letters.letters_and_braille.has_key?(letter) == false
+        return puts "Invalid character. Only English Alphabet accepted.\n Try again."
+        require 'pry';binding.pry
+      else
+        return true
+      end
+    end
   end
 
   def length_of_message
@@ -30,14 +40,18 @@ class NightWriter
 
   #method takes the message and translates it
   def braille_conversion
-    collects_symbols = []
+    braille_symbols = []
     read_input_text.map do |character|
-    collects_symbols << @letters.alphabet_conversion(character)
+    braille_symbols << @letters.alphabet_translation(character)
     # require 'pry';binding.pry
       end
-    collects_symbols
+    braille_symbols#.insert(2,"\n")
+    # require 'pry';binding.pry
   end
 
   
+
+  #.insert(posititon, input)
+  ## to limit the length of the line
 
 end

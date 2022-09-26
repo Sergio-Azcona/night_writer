@@ -35,12 +35,12 @@ class AlphabetTranslation
     }
   end
 
-  def alphabet_conversion(letter)
+  def alphabet_translation(letter)
     @letters_and_braille[letter] 
     # require 'pry';binding.pry
   end
 
-  def braille_conversion(braille)
+  def braille_translation(braille)
     @letters_and_braille.find do |letter, braille_character|
       # require 'pry';binding.pry
         if braille == braille_character
