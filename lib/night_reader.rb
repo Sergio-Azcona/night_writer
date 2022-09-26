@@ -4,7 +4,7 @@ class NightReader
   attr_reader :output_message
   def initialize
     @output_message = output_message
-
+    @letters = AlphabetTranslation.new
   end
 
 
