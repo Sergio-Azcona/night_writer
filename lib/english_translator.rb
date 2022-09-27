@@ -42,11 +42,10 @@ class EnglishTranslator
   def split_braille_message
   individual_letters = []
     braille_conversion.each do |symbol| 
-      individual_letters << symbol.scan(/.{1,2}/)
-    # individual_letters.each_slice(3)
-      require 'pry';binding.pry 
+      individual_letters << symbol.scan(/.{1,2}/).join(" \n ")
     end
     individual_letters
+    require 'pry';binding.pry 
   end
 
 

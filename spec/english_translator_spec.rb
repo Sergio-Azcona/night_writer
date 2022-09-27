@@ -30,9 +30,21 @@ RSpec.describe EnglishTranslator do
     expect(english_message.braille_conversion).to eq(["0.00..", "0..00.", "000.0.", "0..0..", "......", ".00...", "......", "000.0.", "0.....", ".00.0.", ".00.0."])#HOPE I pass
   end
 
-  it 'splits the braille message into individual characters in their own array' do
+  it 'converts braille message into individual two characters, adds a new line, in their own array' do
+    split_note = [
+      "0. \n 00 \n ..",
+      "0. \n .0 \n 0.",
+      "00 \n 0. \n 0.",
+      "0. \n .0 \n ..",
+      ".. \n .. \n ..",
+      ".0 \n 0. \n ..",
+      ".. \n .. \n ..",
+      "00 \n 0. \n 0.",
+      "0. \n .. \n ..",
+      ".0 \n 0. \n 0.",
+      ".0 \n 0. \n 0."]
     
-    expect(english_message.split_braille_message).to eq([["0", ".", "0", "0", ".", "."], ["0", ".", ".", "0", "0", "."], ["0", "0", "0", ".", "0", "."], ["0",".",".", ".","."], ["0", ".", ".", ".", ".", "."], [".", "0", "0", ".", "0", "."], [".", "0", "0", ".", "0", "."]])#HOPE I pass
+    expect(english_message.split_braille_message).to eq(split_note)#HOPE I pass
   end
   
 
