@@ -8,4 +8,6 @@ RSpec.describe BrailleTranslator do
     expect(braille_input.braille_translation("0.....")).not_to eq(" ")
   end
 
+  
+
 end
