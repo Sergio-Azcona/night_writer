@@ -11,7 +11,6 @@ class EnglishTranslator
     # incoming_message = "HOPE"
     incoming_message.chomp!
     @input_text = incoming_message.downcase.chars
-    # require 'pry';binding.pry
   end
 
   
@@ -27,11 +26,8 @@ class EnglishTranslator
 
   #method takes the message and translates it
   def braille_conversion
-    # require 'pry';binding.pry
     braille_symbols = []
     @input_text.each do |character|
-      # require 'pry';binding.pry
-      # require 'pry';binding.pry
       braille_symbols << @letters.alphabet_translation(character)
     end
     braille_symbols
@@ -43,41 +39,32 @@ class EnglishTranslator
       individual_letters << symbol.scan(/.{1,2}/).zip
     end
     individual_letters
-    # require 'pry';binding.pry
   end
   
   def virtical_braille_characters
-    # require 'pry';binding.pry
     row_1 = []
     row_2 = []
     row_3 = []
     new_layout = []
     split_braille_message.map do |row|
-      # require 'pry';binding.pry
       row_1 << row[0].flatten.join
       row_2 << row[1].flatten.join
       row_3 << row[2].flatten.join
       new_layout = row_1, row_2, row_3
     end
     new_layout
-    # require 'pry';binding.pry
   end
 
-
-  # def unit_characters_in_row
-  #   virtical_braille_characters.each do |row|
-  #     require 'pry';binding.pry
-
-  #   end
-  # end
-
-
+  def braille_lines
+    braille = []
+    virtical_braille_characters.each do |row|
+      braille << row.join + "\n"
+    end
+    braille.join
+    # require 'pry';binding.pry
+  end
 
   def alphabet_translation(letter)
     @letters.letters_and_braille[letter]
   end
-
-  #.insert(posititon, input)
-  ## to limit the length of the line
-
 end

@@ -30,7 +30,7 @@ RSpec.describe EnglishTranslator do
     expect(english_message.braille_conversion).to eq(["0.00..", "0..00.", "000.0.", "0..0..", "......", ".00...", "......", "000.0.", "0.....", ".00.0.", ".00.0."])#HOPE I pass
   end
 
-  it 'converts braille message into individual two characters, adds a new line, in their own array' do
+  xit 'converts braille message into individual two characters, adds a new line, in their own array' do
     split_note = [
     [["0."], ["00"], [".."]],
     [["0."], [".0"], ["0."]],
@@ -48,7 +48,7 @@ RSpec.describe EnglishTranslator do
     expect(english_message.split_braille_message).to eq(split_note)#HOPE I pass
   end
   
-  it '#transpose_braille_message to get letters accross left to right' do
+  xit '#transpose_braille_message to get letters accross left to right' do
     virtical_message = [
     ["0.", "0.", "00", "0.", "..", ".0", "..", "00", "0.", ".0", ".0"],
     ["00", ".0", "0.", ".0", "..", "0.", "..", "0.", "..", "0.", "0."],
@@ -57,7 +57,7 @@ RSpec.describe EnglishTranslator do
     expect(english_message.virtical_braille_characters).to eq(virtical_message)
   end
   
-  xit 'should hold letters' do
+  it 'should hold letters' do
     expect(english_message.unit_characters_in_row).to eq(["0."])
   end
 end
