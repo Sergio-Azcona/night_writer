@@ -1,13 +1,9 @@
 #converts english to Braille and prints to txt 
+require './lib/alphabet_translation'
 
-class EnglishTranslator
-  attr_reader :input_text
-  def initialize
-    @letters = AlphabetTranslation.new
-  end
+class EnglishTranslator < AlphabetTranslation
 
   def read_input_text
-    # incoming_message = "HOPE"
     file_data = File.open(ARGV[0], "r")
     incoming_message = file_data.read
     file_data.close
@@ -16,7 +12,7 @@ class EnglishTranslator
   
   def valid_input?
     @input_text.find_all do |letter|
-      if @letters.letters_and_braille.has_key?(letter) == false
+      if (@alphabet_dictionary.has_key?(letter) == false)
         return puts  "Invalid character. Only English Alphabet accepted.\n Try again."
       else
         return true
@@ -29,7 +25,7 @@ class EnglishTranslator
     braille_symbols = []
     if valid_input? == true
       @input_text.each do |character|
-        braille_symbols << @letters.alphabet_translation(character)
+        braille_symbols << alphabet_translation(character)
       end
     end
     braille_symbols
@@ -57,30 +53,28 @@ class EnglishTranslator
     end
     new_layout
   end
-
+  
   def braille_lines
     braille = []
     virtical_braille_characters.each do |row|
-      braille << row.join + "\n"
-    end
+        braille << row.join + "\n"
+      end
     braille.join
   end
 
-  def braille_txt_message
+  def printed_text_message
     braille_writer = File.open(ARGV[1], "w")
     braille_writer.write(braille_lines)
-
     braille_writer.close  
-    message_size = braille_lines.size
-    print "\nCreated #{ARGV[1]} containing #{message_size} characters\n"
+    print "\nCreated #{ARGV[1]} containing #{@input_text.size} characters"
   end
   
   def translate_to_braille
     read_input_text
-    braille_txt_message
+    printed_text_message
   end
 
   def alphabet_translation(letter)
-    @letters.letters_and_braille[letter]
+    @alphabet_dictionary[letter]
   end
 end
