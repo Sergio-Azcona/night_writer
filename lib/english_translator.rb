@@ -11,7 +11,7 @@ class EnglishTranslator
     # incoming_message = "HOPE"
     incoming_message.chomp!
     @input_text = incoming_message.downcase.chars
-    # require 'pry';binding.pry
+    require 'pry';binding.pry
   end
 
   
@@ -25,16 +25,12 @@ class EnglishTranslator
     end
   end
 
-  def length_of_message
-    read_input_text(@input_text).size
-  end
-
   #method takes the message and translates it
   def braille_conversion
     braille_symbols = []
     read_input_text(@input_text).map do |character|
+      # require 'pry';binding.pry
       braille_symbols << @letters.alphabet_translation(character)
-      
     end
     braille_symbols
   end
@@ -44,7 +40,7 @@ class EnglishTranslator
     braille_conversion.each do |symbol| 
       individual_letters << symbol.scan(/.{1,2}/).zip
     end
-    # individual_letters
+    individual_letters
     # require 'pry';binding.pry
   end
   
@@ -59,6 +55,7 @@ class EnglishTranslator
       row_3 << row[2].flatten.join
       new_layout = row_1, row_2, row_3
     end
+    require 'pry';binding.pry
     new_layout
   end
 
