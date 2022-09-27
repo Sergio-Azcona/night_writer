@@ -13,12 +13,11 @@ class EnglishTranslator
     file_data.close
     @input_text = incoming_message.downcase.chars
   end
-
   
   def valid_input?
     @input_text.find_all do |letter|
       if @letters.letters_and_braille.has_key?(letter) == false
-        return puts "Invalid character. Only English Alphabet accepted.\n Try again."
+        return puts  "Invalid character. Only English Alphabet accepted.\n Try again."
       else
         return true
       end
@@ -28,12 +27,15 @@ class EnglishTranslator
   #method takes the message and translates it
   def braille_conversion
     braille_symbols = []
-    @input_text.each do |character|
-      braille_symbols << @letters.alphabet_translation(character)
+    if valid_input? == true
+      @input_text.each do |character|
+        braille_symbols << @letters.alphabet_translation(character)
+      end
     end
     braille_symbols
   end
   
+  #method splits translated characters in two per element
   def split_braille_message
     individual_letters = []
     braille_conversion.each do |symbol| 
