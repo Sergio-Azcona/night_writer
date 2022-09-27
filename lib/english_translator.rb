@@ -1,4 +1,4 @@
-#Create a  program that will convert english to Braille 
+#converts english to Braille and prints to txt 
 
 class EnglishTranslator
   attr_reader :input_text
@@ -73,6 +73,11 @@ class EnglishTranslator
     print "\nCreated #{ARGV[1]} containing #{message_size} characters\n"
   end
   
+  def translate_to_braille
+    read_input_text
+    braille_txt_message
+  end
+
   def alphabet_translation(letter)
     @letters.letters_and_braille[letter]
   end
