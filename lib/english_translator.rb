@@ -3,7 +3,7 @@
 class EnglishTranslator
   attr_reader :input_text
   def initialize
-    @input_text = ""
+    # @input_text = ""
     @letters = AlphabetTranslation.new
   end
 
@@ -11,7 +11,7 @@ class EnglishTranslator
     # incoming_message = "HOPE"
     incoming_message.chomp!
     @input_text = incoming_message.downcase.chars
-    require 'pry';binding.pry
+    # require 'pry';binding.pry
   end
 
   
@@ -27,8 +27,10 @@ class EnglishTranslator
 
   #method takes the message and translates it
   def braille_conversion
+    # require 'pry';binding.pry
     braille_symbols = []
-    read_input_text(@input_text).map do |character|
+    @input_text.each do |character|
+      # require 'pry';binding.pry
       # require 'pry';binding.pry
       braille_symbols << @letters.alphabet_translation(character)
     end
@@ -45,18 +47,20 @@ class EnglishTranslator
   end
   
   def virtical_braille_characters
+    # require 'pry';binding.pry
     row_1 = []
     row_2 = []
     row_3 = []
     new_layout = []
     split_braille_message.map do |row|
+      # require 'pry';binding.pry
       row_1 << row[0].flatten.join
       row_2 << row[1].flatten.join
       row_3 << row[2].flatten.join
       new_layout = row_1, row_2, row_3
     end
-    require 'pry';binding.pry
     new_layout
+    # require 'pry';binding.pry
   end
 
 
