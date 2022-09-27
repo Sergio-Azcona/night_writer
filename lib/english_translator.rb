@@ -2,7 +2,7 @@
 require './lib/alphabet_translation'
 
 class EnglishTranslator < AlphabetTranslation
-  
+
   def read_input_text
     file_data = File.open(ARGV[0], "r")
     incoming_message = file_data.read
@@ -12,8 +12,7 @@ class EnglishTranslator < AlphabetTranslation
   
   def valid_input?
     @input_text.find_all do |letter|
-      if (@alphabet_dictionary.has_key?(letter) == false)# ||
-        # (@letters.alphabet_dictionary.has_value?(letter) == false))
+      if (@alphabet_dictionary.has_key?(letter) == false)
         return puts  "Invalid character. Only English Alphabet accepted.\n Try again."
       else
         return true
@@ -63,7 +62,7 @@ class EnglishTranslator < AlphabetTranslation
     braille.join
   end
 
-  def braille_txt_message
+  def printed_text_message
     braille_writer = File.open(ARGV[1], "w")
     braille_writer.write(braille_lines)
     braille_writer.close  
@@ -72,7 +71,7 @@ class EnglishTranslator < AlphabetTranslation
   
   def translate_to_braille
     read_input_text
-    braille_txt_message
+    printed_text_message
   end
 
   def alphabet_translation(letter)

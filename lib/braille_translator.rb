@@ -1,8 +1,6 @@
+require './lib/alphabet_translation'
 
-class BrailleTranslator
-  def initialize
-  end
-
+class BrailleTranslator < AlphabetTranslation
 
   def braille_translation(braille)
     @alphabet_dictionary.find do |letter, braille_character|

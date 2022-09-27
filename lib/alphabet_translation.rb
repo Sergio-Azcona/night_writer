@@ -1,7 +1,5 @@
 class AlphabetTranslation
-  # attr_reader :alphabet_dictionary
   def initialize
-  
   @alphabet_dictionary = {
     " " => "......",
     "a" => "0.....",
