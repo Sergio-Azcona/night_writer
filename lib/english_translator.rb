@@ -35,17 +35,16 @@ class EnglishTranslator
     braille_symbols << @letters.alphabet_translation(character)
     
       end
-    braille_symbols#.insert(2,"\n")
-    # require 'pry';binding.pry
+    braille_symbols
   end
 
   def split_braille_message
   individual_letters = []
     braille_conversion.each do |symbol| 
-      individual_letters << symbol.scan(/.{1,2}/).join(" \n ")
+      individual_letters << symbol.scan(/.{1,2}/).zip
     end
     individual_letters
-    require 'pry';binding.pry 
+    # require 'pry';binding.pry 
   end
 
 
