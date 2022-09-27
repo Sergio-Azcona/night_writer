@@ -44,9 +44,22 @@ class EnglishTranslator
       individual_letters << symbol.scan(/.{1,2}/).zip
     end
     individual_letters
-    # require 'pry';binding.pry 
+    # require 'pry';binding.pry
   end
 
+  def virtical_braille_characters
+    row_1 = []
+    row_2 = []
+    row_3 = []
+    new_layout = []
+    split_braille_message.each do |row|
+        row_1 << row[0]
+        row_2 << row[1]
+        row_3 << row[2]
+         new_layout = row_1, row_2, row_3
+    end
+    new_layout
+  end
 
 
 
