@@ -50,12 +50,14 @@ RSpec.describe EnglishTranslator do
   
   it '#transpose_braille_message to get letters accross left to right' do
     virtical_message = [
-    [["0."], ["0."], ["00"], ["0."], [".."], [".0"], [".."], ["00"], ["0."], [".0"], [".0"]],
-    [["00"], [".0"], ["0."], [".0"], [".."], ["0."], [".."], ["0."], [".."], ["0."], ["0."]],
-    [[".."], ["0."], ["0."], [".."], [".."], [".."], [".."], ["0."], [".."], ["0."], ["0."]]
+    ["0.", "0.", "00", "0.", "..", ".0", "..", "00", "0.", ".0", ".0"],
+    ["00", ".0", "0.", ".0", "..", "0.", "..", "0.", "..", "0.", "0."],
+    ["..", "0.", "0.", "..", "..", "..", "..", "0.", "..", "0.", "0."]
     ]
     expect(english_message.virtical_braille_characters).to eq(virtical_message)
   end
   
- 
+  it 'should hold letters' do
+    expect(english_message.unit_characters_in_row).to eq(["0."])
+  end
 end
