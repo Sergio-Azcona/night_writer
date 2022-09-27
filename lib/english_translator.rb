@@ -1,13 +1,9 @@
 #converts english to Braille and prints to txt 
+require './lib/alphabet_translation'
 
-class EnglishTranslator
-  attr_reader :input_text
-  def initialize
-    @letters = AlphabetTranslation.new
-  end
-
+class EnglishTranslator < AlphabetTranslation
+  
   def read_input_text
-    # incoming_message = "HOPE I Pass"
     file_data = File.open(ARGV[0], "r")
     incoming_message = file_data.read
     file_data.close
@@ -16,7 +12,8 @@ class EnglishTranslator
   
   def valid_input?
     @input_text.find_all do |letter|
-      if @letters.letters_and_braille.has_key?(letter) == false
+      if (@alphabet_dictionary.has_key?(letter) == false)# ||
+        # (@letters.alphabet_dictionary.has_value?(letter) == false))
         return puts  "Invalid character. Only English Alphabet accepted.\n Try again."
       else
         return true
@@ -29,7 +26,7 @@ class EnglishTranslator
     braille_symbols = []
     if valid_input? == true
       @input_text.each do |character|
-        braille_symbols << @letters.alphabet_translation(character)
+        braille_symbols << alphabet_translation(character)
       end
     end
     braille_symbols
@@ -70,7 +67,7 @@ class EnglishTranslator
     braille_writer = File.open(ARGV[1], "w")
     braille_writer.write(braille_lines)
     braille_writer.close  
-    print "\nCreated #{ARGV[1]} containing #{@input_text.size} characters\n"
+    print "\nCreated #{ARGV[1]} containing #{@input_text.size} characters"
   end
   
   def translate_to_braille
@@ -79,6 +76,6 @@ class EnglishTranslator
   end
 
   def alphabet_translation(letter)
-    @letters.letters_and_braille[letter]
+    @alphabet_dictionary[letter]
   end
 end

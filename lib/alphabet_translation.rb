@@ -1,8 +1,8 @@
 class AlphabetTranslation
-  attr_reader :letters_and_braille
+  # attr_reader :alphabet_dictionary
   def initialize
   
-  @letters_and_braille = {
+  @alphabet_dictionary = {
     " " => "......",
     "a" => "0.....",
     "b" => "0.0...",
@@ -14,7 +14,6 @@ class AlphabetTranslation
     "h" => "0.00..",
     "i" => ".00...",
     "j" => ".000..",
-
     "k" => "0...0.",
     "l" => "0.0.0.",
     "m" => "00..0.",
@@ -25,28 +24,12 @@ class AlphabetTranslation
     "r" => "0.000.",
     "s" => ".00.0.",
     "t" => ".0000.",
-
     "u" => "0...00",
     "v "=> "0.0.00",
     "w" => ".000.0",
     "x" => "00..00",
     "y" => "00.000",
     "z" => "0..000",
-
-    
     }
   end
-
-  def alphabet_translation(letter)
-    @letters_and_braille[letter]
-  end
-
-  def braille_translation(braille)
-    @letters_and_braille.find do |letter, braille_character|
-        if braille == braille_character
-          return letter
-        end
-    end
-  end
-
 end
