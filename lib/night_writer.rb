@@ -1,16 +1,20 @@
-#Create a  program that will convert english to Braille 
+# require './spec/spec_helper'
+require './lib/english_translator'
+require './lib/alphabet_translation'
 
 
-    file_data = File.open('./lib/message.txt', "r")
+    file_data = File.open(ARGV[0], "r")
     input_text = file_data.read
     
-    english_message = EnglishTranslator.new.
-    # file_data.close ##cannot close file until translation is complete
-    input_text.chomp!
-    input_text.downcase.chars 
-    require 'pry';binding.pry
+    file_data.close
+    # english_message = EnglishTranslator.new.read_input_text(input_text)
+
     # ** DOWNCASE will need to be removed if CAPITOL LETTERS accepted  **
+
+
+  # def terminal_message 
+  #   print "Created #{ARGV[1]} containing #{length_of_message} characters"
+  # end
     
 
-end
     

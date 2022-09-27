@@ -32,17 +32,17 @@ class AlphabetTranslation
     "x" => "00..00",
     "y" => "00.000",
     "z" => "0..000",
+
+    
     }
   end
 
   def alphabet_translation(letter)
-    @letters_and_braille[letter] 
-    # require 'pry';binding.pry
+    @letters_and_braille[letter]
   end
 
   def braille_translation(braille)
     @letters_and_braille.find do |letter, braille_character|
-      # require 'pry';binding.pry
         if braille == braille_character
           return letter
         end
