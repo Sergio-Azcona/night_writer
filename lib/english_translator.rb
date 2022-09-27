@@ -3,19 +3,20 @@
 class EnglishTranslator
   attr_reader :input_text
   def initialize
-    # @input_text = ""
     @letters = AlphabetTranslation.new
   end
 
-  def read_input_text(incoming_message)
+  def read_input_text
     # incoming_message = "HOPE"
-    incoming_message.chomp!
+    file_data = File.open(ARGV[0], "r")
+    incoming_message = file_data.read
+    file_data.close
     @input_text = incoming_message.downcase.chars
   end
 
   
   def valid_input?
-    input_text.find_all do |letter|
+    @input_text.find_all do |letter|
       if @letters.letters_and_braille.has_key?(letter) == false
         return puts "Invalid character. Only English Alphabet accepted.\n Try again."
       else
@@ -61,9 +62,17 @@ class EnglishTranslator
       braille << row.join + "\n"
     end
     braille.join
-    # require 'pry';binding.pry
   end
 
+  def braille_txt_message
+    braille_writer = File.open(ARGV[1], "w")
+    braille_writer.write(braille_lines)
+
+    braille_writer.close  
+    message_size = braille_lines.size
+    print "\nCreated #{ARGV[1]} containing #{message_size} characters\n"
+  end
+  
   def alphabet_translation(letter)
     @letters.letters_and_braille[letter]
   end
