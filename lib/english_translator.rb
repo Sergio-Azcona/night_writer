@@ -7,7 +7,7 @@ class EnglishTranslator
   end
 
   def read_input_text
-    # incoming_message = "HOPE"
+    # incoming_message = "HOPE I Pass"
     file_data = File.open(ARGV[0], "r")
     incoming_message = file_data.read
     file_data.close
@@ -57,22 +57,20 @@ class EnglishTranslator
     end
     new_layout
   end
-
+  
   def braille_lines
     braille = []
     virtical_braille_characters.each do |row|
-      braille << row.join + "\n"
-    end
+        braille << row.join + "\n"
+      end
     braille.join
   end
 
   def braille_txt_message
     braille_writer = File.open(ARGV[1], "w")
     braille_writer.write(braille_lines)
-
     braille_writer.close  
-    message_size = braille_lines.size
-    print "\nCreated #{ARGV[1]} containing #{message_size} characters\n"
+    print "\nCreated #{ARGV[1]} containing #{@input_text.size} characters\n"
   end
   
   def translate_to_braille
