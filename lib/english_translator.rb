@@ -8,9 +8,10 @@ class EnglishTranslator
   end
 
   def read_input_text(incoming_message)
-    incoming_message = "HOPE I Pass"
+    # incoming_message = "HOPE"
     incoming_message.chomp!
     @input_text = incoming_message.downcase.chars
+    # require 'pry';binding.pry
   end
 
   
@@ -43,7 +44,7 @@ class EnglishTranslator
     braille_conversion.each do |symbol| 
       individual_letters << symbol.scan(/.{1,2}/).zip
     end
-    individual_letters
+    # individual_letters
     # require 'pry';binding.pry
   end
   
@@ -59,17 +60,15 @@ class EnglishTranslator
       new_layout = row_1, row_2, row_3
     end
     new_layout
-    # require 'pry';binding.pry
   end
 
 
-  def unit_characters_in_row
-    virtical_braille_characters.each do |row|
-      # row[0].flatten.join
-      require 'pry';binding.pry
+  # def unit_characters_in_row
+  #   virtical_braille_characters.each do |row|
+  #     require 'pry';binding.pry
 
-    end
-  end
+  #   end
+  # end
 
 
 
