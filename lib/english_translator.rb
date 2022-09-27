@@ -3,7 +3,7 @@
 class EnglishTranslator
   attr_reader :input_text
   def initialize
-    @input_text = ""
+    # @input_text = ""
     @letters = AlphabetTranslation.new
   end
 
@@ -11,7 +11,6 @@ class EnglishTranslator
     # incoming_message = "HOPE"
     incoming_message.chomp!
     @input_text = incoming_message.downcase.chars
-    # require 'pry';binding.pry
   end
 
   
@@ -25,16 +24,11 @@ class EnglishTranslator
     end
   end
 
-  def length_of_message
-    read_input_text(@input_text).size
-  end
-
   #method takes the message and translates it
   def braille_conversion
     braille_symbols = []
-    read_input_text(@input_text).map do |character|
+    @input_text.each do |character|
       braille_symbols << @letters.alphabet_translation(character)
-      
     end
     braille_symbols
   end
@@ -44,8 +38,7 @@ class EnglishTranslator
     braille_conversion.each do |symbol| 
       individual_letters << symbol.scan(/.{1,2}/).zip
     end
-    # individual_letters
-    # require 'pry';binding.pry
+    individual_letters
   end
   
   def virtical_braille_characters
@@ -62,21 +55,16 @@ class EnglishTranslator
     new_layout
   end
 
-
-  # def unit_characters_in_row
-  #   virtical_braille_characters.each do |row|
-  #     require 'pry';binding.pry
-
-  #   end
-  # end
-
-
+  def braille_lines
+    braille = []
+    virtical_braille_characters.each do |row|
+      braille << row.join + "\n"
+    end
+    braille.join
+    # require 'pry';binding.pry
+  end
 
   def alphabet_translation(letter)
     @letters.letters_and_braille[letter]
   end
-
-  #.insert(posititon, input)
-  ## to limit the length of the line
-
 end
