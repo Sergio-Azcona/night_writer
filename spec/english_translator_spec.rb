@@ -9,7 +9,7 @@ RSpec.describe EnglishTranslator do
 
   it 'receives a message from night writer' do
     note = "HOPE I Pass" 
-    allow_any_instance_of(File).to receive(:read).and_return(note)
+    allow_any_instance_of(english_message).to receive(:read_input_text).and_return(note)
     expect(english_message.read_input_text).to eq(["h", "o", "p", "e", " ", "i", " ", "p", "a", "s", "s"])
   end
 
