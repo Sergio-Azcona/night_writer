@@ -22,7 +22,8 @@ RSpec.describe EnglishTranslator do
   it 'takes a valid letter and return braille' do
     note = "HOPE I Pass" 
     allow(english_message).to receive(:read_input_text).and_return(note)
-    expect(english_message.braille_conversion).to eq(["0.00..", "0..00.", "000.0.", "0..0..", "......", ".00...", "......", "000.0.", "0.....", ".00.0.", ".00.0."])#HOPE I pass
+    expect(english_message.braille_conversion).not_to eq(["0.00..", "0..00.", "000.0."])
+    expect(english_message.braille_conversion).to eq(["0.00..", "0..00.", "000.0.", "0..0..", "......", ".00...", "......", "000.0.", "0.....", ".00.0.", ".00.0."])
   end
 
   it 'converts braille message into individual two characters, adds a new line, in their own array' do

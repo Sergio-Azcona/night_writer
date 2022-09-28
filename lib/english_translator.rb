@@ -5,15 +5,15 @@ class EnglishTranslator < AlphabetTranslation
 
   def read_input_text
     file_data = File.open(ARGV[0], "r")
-    incoming_message = file_data.read
+    incoming_text = file_data.read
     file_data.close
-    @input_text = incoming_message.downcase.chars
+    @input_text = incoming_text.downcase.chars
   end
   
   def valid_input?
     @input_text.find_all do |letter|
       if (@alphabet_dictionary.has_key?(letter) == false)
-        return puts  "Invalid character. Only English Alphabet accepted.\n Try again."
+        return puts "Invalid English Alphabet input.\n Try again."
       else
         return true
       end
