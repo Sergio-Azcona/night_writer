@@ -4,10 +4,11 @@ require './lib/alphabet_translation'
 class EnglishTranslator < AlphabetTranslation
 
   def read_input_text
-    file_data = File.open(ARGV[0], "r")
-    incoming_text = file_data.read
-    file_data.close
+      file_data = File.open(ARGV[0], "r")
+      incoming_text = file_data.read
+      file_data.close 
     @input_text = incoming_text.downcase.chars
+
   end
   
   def valid_input?
@@ -32,7 +33,7 @@ class EnglishTranslator < AlphabetTranslation
   end
   
   #method splits translated characters in two per element
-  def split_braille_message
+  def split_braille_characters
     individual_letters = []
     braille_conversion.each do |symbol| 
       individual_letters << symbol.scan(/.{1,2}/).zip
@@ -45,10 +46,10 @@ class EnglishTranslator < AlphabetTranslation
     row_2 = []
     row_3 = []
     new_layout = []
-    split_braille_message.map do |row|
-      row_1 << row[0].flatten.join
-      row_2 << row[1].flatten.join
-      row_3 << row[2].flatten.join
+    split_braille_characters.map do |row|
+      row_1 << row[0].join
+      row_2 << row[1].join
+      row_3 << row[2].join
       new_layout = row_1, row_2, row_3
     end
     new_layout
